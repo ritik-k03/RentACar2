@@ -1,0 +1,17 @@
+<template>
+    <a onclick={handleCarSelect} >
+        <div class={isCarSelected}>
+            <img src={car.Picture__c} class="car slds-align_absolute-center" alt="Car Picture" >
+            <div>
+                <p class="title slds-align_absolute-center">
+                     ${car.Per_Day_Rent__c}
+                </p>
+            </div>
+            
+        </div>
+        <div class="slds-align_absolute-center" style="padding-top: 20px;">
+            <lightning-button variant="brand-outline" label="Book" title="Primary action" onclick={bookcar} class="slds-m-left_x-small"></lightning-button>
+        </div>
+    </a>
+
+</template>

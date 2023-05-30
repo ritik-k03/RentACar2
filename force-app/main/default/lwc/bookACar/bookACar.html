@@ -1,0 +1,44 @@
+<template>
+    <div class="exampleHolder">
+        <template if:true={isLoaded}>
+            <lightning-spinner class="slds-is-fixed" alternative-text="Loading" variant="brand" size="large"></lightning-spinner>
+        </template>
+    </div> 
+    <template if:true={showcars}>
+        <lightning-layout multiple-rows horizontal-align="center">
+            <template if:true={carsFound}>
+                <template for:each={cars} for:item="car">
+                    <lightning-layout-item key={car.Id} padding="around-small" size="12" small-device-size="6"
+                        large-device-size="3" medium-device-size="4">
+                        {car.Name}
+                        <c-new-car-tile car={car} oncarselect={carSelectHandler}  car-selected-id={selectedCarId}></c-new-car-tile>
+                    </lightning-layout-item>
+                </template>
+            </template>
+            <template if:false={carsFound}>
+                <div class="slds-align_absolute-center">
+                    No Cars Found
+                </div>
+            </template>
+        </lightning-layout>
+    </template>
+        
+    <template if:true={showform}>
+        <div class="slds-p-bottom_large slds-p-left_large" style="width:500px">
+            <lightning-record-edit-form object-api-name="Contact" onsuccess={handleSaveRecord}>
+                <lightning-messages></lightning-messages>
+                <lightning-input-field field-name="Name"> </lightning-input-field>
+                <lightning-input-field field-name="Phone"> </lightning-input-field>
+                <lightning-input-field field-name="BillingAddress">
+                </lightning-input-field>
+                <lightning-button
+                    type="submit"
+                    name="submit"
+                    label="Confirm"
+                >
+                </lightning-button>
+            </lightning-record-edit-form>
+        </div>
+        
+    </template>
+</template>

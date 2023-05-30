@@ -28,6 +28,7 @@ export default class CarSearchForm extends NavigationMixin(LightningElement) {
         this.dispatchEvent(carTypeSelectionChangeEvent);
     }
 
+ 
     createNewCarType(){
 
         this[NavigationMixin.Navigate]({
@@ -49,5 +50,20 @@ export default class CarSearchForm extends NavigationMixin(LightningElement) {
         this.dispatchEvent(evt);
     }
 
-
+    bookCar() {
+        var compDefinition = {
+            componentDef: "c:bookACar",
+            attributes: {
+                propertyValue: "500"
+            }
+        };
+        // Base64 encode the compDefinition JS object
+        var encodedCompDef = btoa(JSON.stringify(compDefinition));
+        this[NavigationMixin.Navigate]({
+            type: 'standard__webPage',
+            attributes: {
+                url: '/one/one.app#' + encodedCompDef
+            }
+        });
+    }
 }
