@@ -62,7 +62,7 @@ export default class BookACar extends NavigationMixin(LightningElement) {
             this[NavigationMixin.Navigate]({
                 type: 'standard__webPage',
                 attributes: {
-                    url: 'https://rksoftware6-dev-ed.develop.lightning.force.com/lightning/n/Rent_A_Car'
+                    url: 'https://rksoftware6-dev-ed.develop.lightning.force.com/'+result
                 }
             });
             

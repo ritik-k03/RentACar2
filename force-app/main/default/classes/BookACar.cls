@@ -9,6 +9,7 @@ public with sharing class BookACar {
             AND Id =: carId];
             System.debug('ritik'+carId);
             Car__c c = new car__c();
+            Contact conc =[select id, email,Start_Date__c, end_date__c from contact where id=: contactId];
             c.Per_Day_Rent__c=car[0].Per_Day_Rent__c;
             c.Name=car[0].Name;
             c.Picture__c=car[0].Picture__c;
@@ -18,6 +19,9 @@ public with sharing class BookACar {
             c.Available_For_Rent__c=true;
             c.Mileage__c=car[0].Mileage__c;
             c.Car_Type__c=car[0].Car_Type__c;
+            c.email__c=conc.Email;
+            c.start_date__c=conc.Start_Date__c;
+            c.end_date__c=conc.end_date__c;
             insert c;
             return c.Id;
         } catch (Exception e) {

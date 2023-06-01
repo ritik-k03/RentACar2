@@ -25,19 +25,33 @@
         
     <template if:true={showform}>
         <div class="slds-p-bottom_large slds-p-left_large" style="width:500px">
-            <lightning-record-edit-form object-api-name="Contact" onsuccess={handleSaveRecord}>
-                <lightning-messages></lightning-messages>
-                <lightning-input-field field-name="Name"> </lightning-input-field>
-                <lightning-input-field field-name="Phone"> </lightning-input-field>
-                <lightning-input-field field-name="BillingAddress">
-                </lightning-input-field>
-                <lightning-button
-                    type="submit"
-                    name="submit"
-                    label="Confirm"
-                >
-                </lightning-button>
-            </lightning-record-edit-form>
+            
+            <lightning-card>
+                <lightning-record-edit-form object-api-name="Contact" onsuccess={handleSaveRecord}>
+                    
+                    <lightning-messages></lightning-messages>
+                    <lightning-input-field field-name="Name"> </lightning-input-field>
+                    <lightning-input-field field-name="Phone" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$" message-when-pattern-mismatch="Please enter a valid phone number" required=""> </lightning-input-field>
+                    <lightning-input-field field-name="AssistantPhone">
+                    </lightning-input-field>
+                    <lightning-input-field field-name="Email"> </lightning-input-field>
+                    <lightning-input-field field-name="GenderIdentity"> </lightning-input-field>
+                    <lightning-input-field field-name="HomePhone"> </lightning-input-field>
+                    <lightning-input-field field-name="MailingAddress"> </lightning-input-field>
+                    <lightning-input-field field-name="OtherAddress"> </lightning-input-field>
+                    <lightning-input-field field-name="HomePhone"> </lightning-input-field>
+                    <lightning-input-field field-name="DoNotCall"> </lightning-input-field>
+                    <lightning-input-field field-name="Start_Date__c" required=""> </lightning-input-field>
+                    <lightning-input-field field-name="end_date__c" required=""> </lightning-input-field>
+                    
+                    <lightning-button
+                        type="submit"
+                        name="submit"
+                        label="Confirm"
+                    >
+                    </lightning-button>
+                </lightning-record-edit-form>
+            </lightning-card>
         </div>
         
     </template>
