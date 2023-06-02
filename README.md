@@ -2,9 +2,23 @@
 
 RentACar is an application built on Salesforce Platform to demonstrate the Salesforce UI Frameworks like LWC or Aura. The application allows end users to search for different car, get their current locations on map and easily review it.
 
-## How Do You Plan to Deploy Your Changes?
+## RentACar data scripts
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+CreateData.apxc: This file has the code to create the data to be used in your RentACar Application
+
+DeleteData.apxc: This file has the code to delete the data created by CreatedData.apxc file
+
+CreateDataTest.apxc: TestClass for CreateData class
+
+DeleteDataTest.apxc: TestClass for DeleteData class
+
+## How to Call CreateData class
+
+Once you have created your "CreateData" class, follow below steps to call the class method to generate data
+Open your developer console
+Click on 'Debug' menu item
+Select 'Open Execute Anonymous Window'
+Type CreateData.createPackageData();
 
 ## Configure Your Salesforce DX Project
 
